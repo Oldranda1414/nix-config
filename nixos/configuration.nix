@@ -105,7 +105,7 @@
   };
 
   home-manager = {
-    # extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs; };
     users = {
       randa = import ./home.nix;
     };
