@@ -2,13 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-	{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./randa.nix
+      ./maintenance.nix
 
       inputs.home-manager.nixosModules.default
     ];
@@ -106,6 +107,7 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
+    #useUserPackages = true;
     users = {
       randa = import ./home.nix;
     };
