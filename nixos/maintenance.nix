@@ -16,5 +16,5 @@
   };
   nix.optimise = {
     automatic = true;
-  }
+  };
 }
