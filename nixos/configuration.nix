@@ -117,7 +117,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-    git
     # text editor
     neovim
     # modern terminal
