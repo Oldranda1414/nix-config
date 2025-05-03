@@ -14,7 +14,6 @@
       extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
       shell = pkgs.zsh;
       packages = with pkgs; [
-
       ];
     };
 
