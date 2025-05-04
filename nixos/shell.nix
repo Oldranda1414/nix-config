@@ -6,10 +6,11 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    defaultKeymap = "viins";
     initContent = ''
 
       # keybindings {
-        bindkey -v
+        # Accept autosuggestion on ctrl + F
 	bindkey -M viins '^F' autosuggest-accept
 
 	# Thin cursor when in insert mode
