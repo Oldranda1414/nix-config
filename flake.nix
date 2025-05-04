@@ -8,14 +8,23 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hydenix = {
+      url = "github:richen604/hydenix";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, hydenix, ... } @ inputs:
   let
     system = "x86_64-linux";
 
     pkgs = import nixpkgs {
       inherit system;
+      overlays = [
+        (final: prev: {
+	  hydenix = hydenix.packages.${system};
+	})
+      ];
 
       config = {
       	allowUnfree = true;
@@ -31,7 +40,7 @@
 
       inputs.home-manager.nixosModules.default
     ];
-    specialArgs = { inherit inputs; };
+    specialArgs = { inherit inputs pkgs; };
   };
 
   };

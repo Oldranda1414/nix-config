@@ -4,10 +4,28 @@
 
 { config, pkgs, inputs, ... }:
 
+let
+  pkgs = import inputs.hydenix.inputs.hydenix-nixpkgs {
+    inherit (inputs.hydenix.lib) system;
+    config.allowUnfree = true;
+    overlays = [
+      inputs.hydenix.lib.overlays
+      (final: prev: {
+        userPkgs = import inputs.nixpkgs {
+	  config.allowUnfree = true;
+	};
+      })
+    ];
+  };
+in
 {
+  # Set pkgs for hydenix globally, any file that imports pkgs will use this
+  nixpkgs.pkgs = pkgs;
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
       ./randa.nix
       ./maintenance.nix
 
