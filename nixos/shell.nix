@@ -9,6 +9,10 @@
         bindkey -v
 	bindkey -M viins '^F' autosuggest-accept
       # }
+
+      # powerlevel10k {
+        source ~/.p10k.zsh
+      # }
     
       # fxf {
         # Enable fxf keybindings and completion
@@ -49,9 +53,6 @@
 	  sha256 = "0z6i9wjjklb4lvr7zjhbphibsyx51psv50gm07mbb0kj9058j6kc";
 	};
       }
-      #{
-      #  name = "zsh-syntax-highlighting";
-      #}
     ];
     zplug = { # For the list of options, please refer to Zplug README.
       enable = true;
@@ -91,5 +92,8 @@
     direnv
   ];
 
-  programs.fzf.enableZshIntegration = true;
+  # programs.fzf.enableZshIntegration = true;
+
+  # add p10k configuration
+  home.file.".p10k.zsh".text = builtins.readFile ./p10k.zsh;
 }
