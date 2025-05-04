@@ -7,6 +7,16 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     defaultKeymap = "viins";
+    shellAliases = {
+      # Handy alias for rebuilding system based on new config
+      rebuild = "nixos-rebuild switch --flake ~/nix-config#default --use-remote-sudo";
+
+      # Handy alias for backtracking
+      ".." = "cd ..";
+
+      # ls into exa (modern ls)
+      ls = "eza --color=always --long --no-filesize --icons --no-time --no-user --no-permissions";
+    };
     initContent = ''
 
       # keybindings {
@@ -86,6 +96,8 @@
     bat
     # shell extension environment
     direnv
+    # modern ls
+    eza
   ];
 
   programs.fzf = {
