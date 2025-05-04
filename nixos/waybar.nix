@@ -7,35 +7,26 @@
 
 let
   cfg = config.hydenix.hm.waybar;
+
+  # repo to get the config files from
+  HyDE = pkgs.fetchFromGitHub {
+    owner = "HyDE-Project";
+    repo = "HyDE";
+    rev = "d8932273e3c14cc12437f41d40fba79f20d7c7c9";
+    sha256 = "xbz2LVzt3TimQWGt9b0dzwi2q93Q8NVeJ/FefVstZW4=";
+  };
 in
 {
-  options.hydenix.hm.waybar = {
-    enable = lib.mkOption {
-      type = lib.types.bool;
-      default = true; ### removed original reference to hydenix
-      description = "Enable bar module";
-    };
-
-    waybar = {
-      enable = lib.mkOption {
-        type = lib.types.bool;
-        default = true;
-        description = "Enable waybar";
-      };
-    };
-  };
-
-  config = lib.mkIf cfg.enable {
-    home.packages =
-      with pkgs;
-      lib.optionals cfg.waybar.enable [
+    home.packages = with pkgs; [
         waybar # system bar
         playerctl # media player cli
         gobject-introspection # for python packages
         (python3.withPackages (ps: with ps; [ pygobject3 ])) # python with pygobject3
         # python-pyamdgpuinfo # AMD GPU information library ### commented because non existent
         lm_sensors # sensors information library
-      ];
+    ];
+
+    
 
     home.file = {
 
@@ -43,113 +34,113 @@ in
       # Note: some of these may not work for NixOS
       # TODO: review waybar modules for nix compatibility
       ".config/waybar/modules/backlight.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/backlight.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/backlight.jsonc";
       };
       ".config/waybar/modules/battery.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/battery.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/battery.jsonc";
       };
       ".config/waybar/modules/bluetooth.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/bluetooth.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/bluetooth.jsonc";
       };
       ".config/waybar/modules/cava.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/cava.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/cava.jsonc";
       };
       ".config/waybar/modules/cliphist.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/cliphist.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/cliphist.jsonc";
       };
       ".config/waybar/modules/clock##alt.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/clock##alt.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/clock##alt.jsonc";
       };
       ".config/waybar/modules/clock.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/clock.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/clock.jsonc";
       };
       ".config/waybar/modules/cpu.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/cpu.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/cpu.jsonc";
       };
       ".config/waybar/modules/cpuinfo.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/cpuinfo.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/cpuinfo.jsonc";
       };
       ".config/waybar/modules/display.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/display.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/display.jsonc";
       };
       ".config/waybar/modules/github_hyde.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/github_hyde.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/github_hyde.jsonc";
       };
       ".config/waybar/modules/gpuinfo.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/gpuinfo.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/gpuinfo.jsonc";
       };
       ".config/waybar/modules/hyprsunset.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/hyprsunset.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/hyprsunset.jsonc";
       };
       ".config/waybar/modules/idle_inhibitor.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/idle_inhibitor.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/idle_inhibitor.jsonc";
       };
 
       ".config/waybar/modules/language.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/language.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/language.jsonc";
       };
       ".config/waybar/modules/memory.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/memory.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/memory.jsonc";
       };
       ".config/waybar/modules/mpris.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/mpris.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/mpris.jsonc";
       };
       ".config/waybar/modules/network.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/network.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/network.jsonc";
       };
       ".config/waybar/modules/notifications.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/notifications.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/notifications.jsonc";
       };
       ".config/waybar/modules/power.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/power.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/power.jsonc";
       };
       ".config/waybar/modules/privacy.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/privacy.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/privacy.jsonc";
       };
       ".config/waybar/modules/pulseaudio.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/pulseaudio.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/pulseaudio.jsonc";
       };
       ".config/waybar/modules/sensorsinfo.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/sensorsinfo.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/sensorsinfo.jsonc";
       };
       ".config/waybar/modules/spotify.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/spotify.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/spotify.jsonc";
       };
       ".config/waybar/modules/taskbar##custom.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/taskbar##custom.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/taskbar##custom.jsonc";
       };
       ".config/waybar/modules/taskbar##windows.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/taskbar##windows.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/taskbar##windows.jsonc";
       };
       ".config/waybar/modules/taskbar.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/taskbar.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/taskbar.jsonc";
       };
       ".config/waybar/modules/theme.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/theme.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/theme.jsonc";
       };
       ".config/waybar/modules/tray.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/tray.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/tray.jsonc";
       };
       ".config/waybar/modules/updates.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/updates.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/updates.jsonc";
       };
       ".config/waybar/modules/wbar.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/wbar.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/wbar.jsonc";
       };
       ".config/waybar/modules/weather.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/weather.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/weather.jsonc";
       };
       ".config/waybar/modules/window.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/window.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/window.jsonc";
       };
       ".config/waybar/modules/workspaces##kanji.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/workspaces##kanji.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/workspaces##kanji.jsonc";
       };
       ".config/waybar/modules/workspaces##roman.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/workspaces##roman.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/workspaces##roman.jsonc";
       };
       ".config/waybar/modules/workspaces.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/workspaces.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/workspaces.jsonc";
       };
 
       # stateful files
@@ -166,42 +157,41 @@ in
         force = true;
       };
       ".config/waybar/config.ctl" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/config.ctl";
+        source = "${HyDE}/Configs/.config/waybar/config.ctl";
         force = true;
         ### mutable = true;
       };
       ".config/waybar/modules/header.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/header.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/header.jsonc";
         force = true;
         ### mutable = true;
       };
       ".config/waybar/modules/footer.jsonc" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/footer.jsonc";
+        source = "${HyDE}/Configs/.config/waybar/modules/footer.jsonc";
         force = true;
         ### mutable = true;
       };
 
       ".config/waybar/modules/style.css" = {
-        source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/modules/style.css";
+        source = "${HyDE}/Configs/.config/waybar/modules/style.css";
         force = true;
         ### mutable = true;
       };
       # ".config/waybar/config.jsonc" =   {
-      #   source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/config.jsonc";
+      #   source = "${HyDE}/Configs/.config/waybar/config.jsonc";
       #   force = true;
       #   mutable = true;
       # };
       # ".config/waybar/style.css" =  {
-      #   source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/style.css";
+      #   source = "${HyDE}/Configs/.config/waybar/style.css";
       #   force = true;
       #   mutable = true;
       # };
       # ".config/waybar/theme.css" =   {
-      #   source = "${pkgs.hydenix.hyde}/Configs/.config/waybar/theme.css";
+      #   source = "${HyDE}/Configs/.config/waybar/theme.css";
       #   force = true;
       #   mutable = true;
       # };
 
     };
-  };
 }
