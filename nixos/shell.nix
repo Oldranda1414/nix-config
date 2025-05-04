@@ -3,18 +3,34 @@
 {
   programs.zsh = {
     enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
     initContent = ''
 
       # keybindings {
         bindkey -v
 	bindkey -M viins '^F' autosuggest-accept
+
+	# Thin cursor when in insert mode
+	#function zle-keymap-select {
+	#  if [[ $KEYMAP == vicmd ]]; then
+	#    echo -ne \'\e[2 q\' # Fat block for NORMAL
+	#  elif [[ $KEYMAP == viins ]]; then
+	#    echo -ne \'\e[6 q\' # Thin bar for INSERT
+	#  fi
+	#  zle reset-prompt
+	#}
+
+	# Hook function
+	#zle -N zle-keymap-select
       # }
 
       # powerlevel10k {
         source ~/.p10k.zsh
       # }
     
-      # fxf {
+      # fzf {
         # Enable fxf keybindings and completion
 	# TODO THIS DOES NOT WORK
         # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -43,17 +59,6 @@
 	eval "$(direnv hook zsh)"
       # }
     '';
-    plugins = [
-      {
-        name = "zsh-autosuggestions";
-	src = pkgs.fetchFromGitHub {
-	  owner = "zsh-users";
-	  repo = "zsh-autosuggestions";
-	  rev = "v0.4.0";
-	  sha256 = "0z6i9wjjklb4lvr7zjhbphibsyx51psv50gm07mbb0kj9058j6kc";
-	};
-      }
-    ];
     zplug = { # For the list of options, please refer to Zplug README.
       enable = true;
       plugins = [
@@ -62,20 +67,10 @@
           name = "romkatv/powerlevel10k";
           tags = [ as:theme depth:1 ]; 
         }
-	#{
-	  # fuzzy finder
-	#  name = "jhawthorn/fzy";
-	#  tags = [ as:command rename-to:fzy hook-build:"make && sudo make install"];
-	#}
 	{
 	  # git plugin
 	  name = "plugins/git";
 	  tags = [ from:oh-my-zsh ];
-	}
-	{
-	  # syntax highlighting
-	  name = "zsh-users/zsh-syntax-highlighting";
-	  tags = [ defer:2 ];
 	}
       ];
     };
@@ -92,7 +87,10 @@
     direnv
   ];
 
-  # programs.fzf.enableZshIntegration = true;
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   # add p10k configuration
   home.file.".p10k.zsh".text = builtins.readFile ./p10k.zsh;
