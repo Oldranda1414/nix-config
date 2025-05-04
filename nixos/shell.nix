@@ -49,10 +49,6 @@
 	  sha256 = "0z6i9wjjklb4lvr7zjhbphibsyx51psv50gm07mbb0kj9058j6kc";
 	};
       }
-      # TODO ADD THIS STUFF
-      #{
-      #  name = "git";
-      #}
       #{
       #  name = "zsh-syntax-highlighting";
       #}
@@ -60,19 +56,26 @@
     zplug = { # For the list of options, please refer to Zplug README.
       enable = true;
       plugins = [
-         { 
-	   name = "zsh-users/zsh-autosuggestions";
-	 }
-         {
-	   name = "zsh-users/zsh-syntx-highlighting";
-	 }
-         {
-	   name = "zsh-users/git";
-	 }
-	 {
-	   name = "romkatv/powerlevel10k";
-	   tags = [ as:theme depth:1 ]; 
-	 }
+        {
+	  # theming and stuff
+          name = "romkatv/powerlevel10k";
+          tags = [ as:theme depth:1 ]; 
+        }
+	#{
+	  # fuzzy finder
+	#  name = "jhawthorn/fzy";
+	#  tags = [ as:command rename-to:fzy hook-build:"make && sudo make install"];
+	#}
+	{
+	  # git plugin
+	  name = "plugins/git";
+	  tags = [ from:oh-my-zsh ];
+	}
+	{
+	  # syntax highlighting
+	  name = "zsh-users/zsh-syntax-highlighting";
+	  tags = [ defer:2 ];
+	}
       ];
     };
   };
@@ -87,4 +90,6 @@
     # shell extension environment
     direnv
   ];
+
+  programs.fzf.enableZshIntegration = true;
 }
