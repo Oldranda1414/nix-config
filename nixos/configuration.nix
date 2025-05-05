@@ -117,6 +117,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # default hyprland terminal, just in case
+    kitty
     wget
     # text editor
     neovim
