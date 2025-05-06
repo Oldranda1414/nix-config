@@ -50,7 +50,7 @@ now running
 
 should correctly create the new generation
 
-#### Auto reboot to locked state
+#### Auto reboot to locked state THIS MIGHT BE SOLVABLE USING BOOT INSTEAD OF SWITCH
 
 after running
 
@@ -116,3 +116,4 @@ now inside the vm follow the instructions in the [Usage](#usage) section to inst
 - waybar config in nix
 - make hyprland config good
 - grub boot loader
+- check if installing fresh nixos-rebuild boot is better than switch
