@@ -113,5 +113,5 @@ now inside the vm follow the instructions in the [Usage](#usage) section to inst
 
 - restructure the repo to have a better layout
 - waybar config in nix
-- hyprland config in nix
+- make hyprland config good
 - grub boot loader
