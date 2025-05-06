@@ -108,3 +108,10 @@ then run to restart the vm with the installed system
 ```
 
 now inside the vm follow the instructions in the [Usage](#usage) section to install my configuration.
+
+## TODO
+
+- restructure the repo to have a better layout
+- waybar config in nix
+- hyprland config in nix
+- grub boot loader
