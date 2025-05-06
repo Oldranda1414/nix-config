@@ -15,7 +15,7 @@
       ".." = "cd ..";
 
       # ls into exa (modern ls)
-      ls = "eza --color=always --long --no-filesize --icons --no-time --no-user --no-permissions";
+      ls = "eza --color=always --icons";
     };
     initContent = ''
 
