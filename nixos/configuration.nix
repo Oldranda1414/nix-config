@@ -126,6 +126,8 @@
     wofi
     # navbar for wayland
     waybar
+    # file explorer
+    dolphin
     # notification deamon
     mako
     # notification deamon dependency
