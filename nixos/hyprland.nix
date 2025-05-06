@@ -172,14 +172,14 @@
           -1; # Set to 0 or 1 to disable the anime mascot wallpapers
         disable_hyprland_logo =
           false; # If true disables the random hyprland logo / anime girl background. :(
-      }
+      };
 
       #############
       ### INPUT ###
       #############
 
       # https://wiki.hyprland.org/Configuring/Variables/#input
-        input {
+        input = {
           kb_layout = "it2";
           # kb_variant =
           # kb_model =
