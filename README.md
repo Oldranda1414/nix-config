@@ -8,7 +8,7 @@ To setup my configuration on a new NixOS installation:
 
 ensure you have git installed (can install it with nix)
 
-`nix-env -i git`
+`nix-env -i git` THIS DOES NOT WORK TEMPORARILLY; PROBABLY SHOULD USE nix-shell INSTEAD
 
 clone the repo in your home directory
 
