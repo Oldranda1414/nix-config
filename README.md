@@ -6,9 +6,9 @@ This repo contains my nix configuration files
 
 To setup my configuration on a new NixOS installation:
 
-ensure you have git installed (can install it with nix)
+ensure you have git installed (can install it temporarilly with nix-shell)
 
-`nix-env -i git` THIS DOES NOT WORK TEMPORARILLY; PROBABLY SHOULD USE nix-shell INSTEAD
+`nix-shell -p git`
 
 clone the repo in your home directory
 
