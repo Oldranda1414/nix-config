@@ -74,7 +74,7 @@ install qemu with your favourite package manager
 
 create a new image file for the vm
 
-`qemu-img create -f qcow2 nixos.img 20G`
+`qemu-img create -f qcow2 nixos.img 30G`
 
 ```sh
   qemu-system-x86_64 \
