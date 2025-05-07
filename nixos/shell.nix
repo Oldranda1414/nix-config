@@ -9,7 +9,7 @@
     defaultKeymap = "viins";
     shellAliases = {
       # Handy alias for rebuilding system based on new config
-      rebuild = "nixos-rebuild switch --flake ~/nix-config#default --use-remote-sudo";
+      rebuild = "nixos-rebuild boot --flake ~/nix-config#default --use-remote-sudo";
 
       # Handy alias for backtracking
       ".." = "cd ..";
