@@ -128,8 +128,6 @@
     neovim
     # browser
     firefox-wayland
-    # lock screen
-    hyprlock
   ];
 
   xdg.portal.enable = true;
