@@ -1,6 +1,25 @@
 { pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    # modern terminal
+    alacritty
+    # application launcher for wayland
+    wofi
+    # navbar for wayland
+    waybar
+    # file explorer
+    kdePackages.dolphin
+    # notification deamon
+    mako
+    # notification deamon dependency
+    libnotify
+    # TODO FIND OUT WHAT THIS DOES
+    hyprpaper
+    # lock screen
+    hyprlock
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -15,6 +34,8 @@
       "$terminal" = "alacritty";
       "$fileManager" = "dolphin";
       "$menu" = "wofi --show drun";
+      "$lock" = "hyrlock";
+
       "$mainMod" = "SUPER";
 
       ################
@@ -214,6 +235,8 @@
         "$mainMod, E, exec, $fileManager"
         "$mainMod, V, togglefloating,"
         "$mainMod, R, exec, $menu"
+        "$mainMod, L, exec, $lock"
+
         "$mainMod, P, pseudo," # dwindle
         "$mainMod, S, togglesplit," # dwindle
 

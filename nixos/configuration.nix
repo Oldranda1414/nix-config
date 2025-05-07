@@ -96,8 +96,11 @@
   # Install hyprland window manager
   programs.hyprland = {
     enable = true;
-    xwayland.enable = true;
+    #xwayland.enable = true;
+    withUWSM = true;
   };
+
+  security.pam.services.hyprlock = {};
 
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
@@ -123,20 +126,6 @@
     wget
     # text editor
     neovim
-    # modern terminal
-    alacritty
-    # application launcher for wayland
-    wofi
-    # navbar for wayland
-    waybar
-    # file explorer
-    kdePackages.dolphin
-    # notification deamon
-    mako
-    # notification deamon dependency
-    libnotify
-    # TODO FIND OUT WHAT THIS DOES
-    hyprpaper
     # browser
     firefox-wayland
   ];
