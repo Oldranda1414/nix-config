@@ -62,7 +62,7 @@
 
       # zoxide {
         # enable zoxide
-        eval "$(zoxide init zsh)"
+        eval "$(zoxide init --cmd cd zsh)"
       # }
 
       # direnv {
