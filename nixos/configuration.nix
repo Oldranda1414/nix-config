@@ -140,6 +140,13 @@
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  
+  # Enable stylix for theme management
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    targets.gnome.enable = false;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
