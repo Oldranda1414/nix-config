@@ -20,7 +20,7 @@ copy your hardware-configuration.nix file
 
 rebuild the system using the flake
 
-`nixos-rebuild switch --flake ~/nix-config#default --use-remote-sudo`
+`nixos-rebuild boot --flake ~/nix-config#default --use-remote-sudo`
 
 after installing everything you should be prompted for the root password
 
@@ -50,16 +50,6 @@ now running
 
 should correctly create the new generation
 
-#### Auto reboot to locked state THIS MIGHT BE SOLVABLE USING BOOT INSTEAD OF SWITCH
-
-after running
-
-`nixos-rebuild switch --flake ~/nix-config#default --use-remote-sudo`
-
-the machine auto reboots and locks up
-
-the generation has actually been creted so shutting down the machine and restarting manually will show the new generation anyway
-
 ### Check it out in vm
 
 If you want to checkout my system just try it out in vm!
@@ -74,7 +64,7 @@ install qemu with your favourite package manager
 
 create a new image file for the vm
 
-`qemu-img create -f qcow2 nixos.img 30G`
+`qemu-img create -f qcow2 nixos.img 20G`
 
 ```sh
   qemu-system-x86_64 \
@@ -111,9 +101,7 @@ now inside the vm follow the instructions in the [Usage](#usage) section to inst
 
 ## TODO
 
-- add stylix for styling
 - restructure the repo to have a better layout
 - waybar config in nix
 - make hyprland config good
 - grub boot loader
-- check if installing fresh nixos-rebuild boot is better than switch
