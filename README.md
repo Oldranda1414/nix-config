@@ -4,7 +4,7 @@ This repo contains my nix configuration files
 
 ## Usage
 
-KEEP IN MIND THAT RUNNING THIS CONFIGURATION WILL SETUP YOUR SYSTEM TO MY CONFIGURATION, INCLUDING ALL MY USERS AND ACCOUNTS
+KEEP IN MIND THAT RUNNING THIS CONFIGURATION AS IS WILL SETUP YOUR SYSTEM TO MY CONFIGURATION, INCLUDING ALL MY USERS AND ACCOUNTS
 
 To setup my configuration on a new NixOS installation:
 
@@ -42,7 +42,7 @@ run the following command:
 
 `journalctl -xe --unit home-manager-<user>`
 
-where \<user\> is the name of the user that home manager failed to run for
+where `<user>` is the name of the user that home manager failed to run for
 
 This shows the files it tried to overwrite
 
@@ -50,7 +50,7 @@ Remove the conflicting files (or back them up by moving them somewhere else)
 
 now running
 
-`nixos-rebuild switch --flake ~/nix-config#default --use-remote-sudo`
+`nixos-rebuild boot --flake ~/nix-config#default --use-remote-sudo`
 
 should correctly create the new generation
 
@@ -60,11 +60,11 @@ If you want to checkout my system just try it out in vm!
 
 I recommend using qemu, a terminal based vm manager
 
-Download the latest NixOS iso from the official site [click me to start download](https://channels.nixos.org/nixos-24.11/latest-nixos-gnome-x86_64-linux.iso)
+Download the latest NixOS iso from the official site [click me to start the download](https://channels.nixos.org/nixos-24.11/latest-nixos-gnome-x86_64-linux.iso)
 
 install qemu with your favourite package manager
 
-`sudo apt install qemu` (some other packages may be needed, ask chatgpt and then tell me so I can add them here)
+`sudo apt install qemu`
 
 create a new image file for the vm
 
@@ -87,7 +87,7 @@ follow install procedure in the vm
 
 after the installation is done, poweroff the vm
 
-then run to restart the vm with the installed system
+then run the following to restart the vm with the installed system
 
 ```sh
   qemu-system-x86_64 \
