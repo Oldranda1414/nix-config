@@ -4,6 +4,8 @@ This repo contains my nix configuration files
 
 ## Usage
 
+KEEP IN MIND THAT RUNNING THIS CONFIGURATION WILL SETUP YOUR SYSTEM TO MY CONFIGURATION, INCLUDING ALL MY USERS AND ACCOUNTS
+
 To setup my configuration on a new NixOS installation:
 
 ensure you have git installed (can install it temporarilly with nix-shell)
@@ -27,6 +29,8 @@ after installing everything you should be prompted for the root password
 reboot the system and on startup select the new generation
 
 `reboot`
+
+The system will now have my user and the default password is `12345`
 
 ### Common Problems
 
@@ -75,7 +79,6 @@ create a new image file for the vm
     -boot d \
     -drive file=nixos.img,format=qcow2 \
     -cdrom path/to/iso \
-    -bios /usr/share/OVMF/OVMF_CODE.fd
 ```
 
 where `path/to/iso` is the path to the downloaded iso file
@@ -94,7 +97,6 @@ then run to restart the vm with the installed system
     -smp 4 \
     -boot c \
     -drive file=nixos.img,format=qcow2 \
-    -bios /usr/share/OVMF/OVMF_CODE.fd
 ```
 
 now inside the vm follow the instructions in the [Usage](#usage) section to install my configuration.
