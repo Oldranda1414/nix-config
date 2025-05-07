@@ -127,7 +127,7 @@
     # navbar for wayland
     waybar
     # file explorer
-    dolphin
+    kdePackages.dolphin
     # notification deamon
     mako
     # notification deamon dependency
