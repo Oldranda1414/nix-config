@@ -16,8 +16,6 @@
     libnotify
     # TODO FIND OUT WHAT THIS DOES
     hyprpaper
-    # lock screen
-    hyprlock
   ];
 
   wayland.windowManager.hyprland = {
