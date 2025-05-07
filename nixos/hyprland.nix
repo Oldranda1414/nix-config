@@ -14,7 +14,7 @@
       # Set programs that you use
       "$terminal" = "alacritty";
       "$fileManager" = "dolphin";
-      "$menu" = "wofi --show drun";
+      "$menu" = "wofi";
       "$mainMod" = "SUPER";
 
       ################
@@ -180,7 +180,7 @@
 
       # https://wiki.hyprland.org/Configuring/Variables/#input
         input = {
-          kb_layout = "it2";
+          kb_layout = "it";
           # kb_variant =
           # kb_model =
           # kb_options =
