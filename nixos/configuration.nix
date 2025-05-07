@@ -144,7 +144,9 @@
   # Enable stylix for theme management
   stylix = {
     enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    image = ./wallpaper.png;
+    # schewe genetic algorithm to darkify theme
+    polarity = "dark";
   };
 
   # Some programs need SUID wrappers, can be configured further or are
