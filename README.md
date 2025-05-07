@@ -104,5 +104,7 @@ now inside the vm follow the instructions in the [Usage](#usage) section to inst
 ## TODO
 
 - restructure the repo to have a better layout
-- waybar config in nix
+- add waybar
+- add waybar config in nix
 - fix hyprlock not working
+- replace p10k with oh-my-posh
