@@ -14,7 +14,7 @@
       # Set programs that you use
       "$terminal" = "alacritty";
       "$fileManager" = "dolphin";
-      "$menu" = "wofi";
+      "$menu" = "wofi --show drun";
       "$mainMod" = "SUPER";
 
       ################
