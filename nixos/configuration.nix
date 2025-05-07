@@ -145,7 +145,6 @@
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-    targets.gnome.enable = false;
   };
 
   # Some programs need SUID wrappers, can be configured further or are
