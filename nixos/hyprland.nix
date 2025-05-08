@@ -65,7 +65,6 @@
       exec-once = [
         "waybar"
         "hyprpaper"
-        "firefox"
       ];
 
       #############################
