@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     # modern terminal
-    alacritty
+    kitty
     # application launcher for wayland
     wofi
     # navbar for wayland
@@ -31,7 +31,7 @@
       # See https://wiki.hyprland.org/Configuring/Keywords/
 
       # Set programs that you use
-      "$terminal" = "alacritty";
+      "$terminal" = "kitty";
       "$fileManager" = "dolphin";
       "$menu" = "wofi --show drun";
       "$lock" = "hyrlock";
