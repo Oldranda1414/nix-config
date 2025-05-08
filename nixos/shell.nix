@@ -6,7 +6,7 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    defaultKeymap = "viins";
+    # defaultKeymap = "viins";
     shellAliases = {
       # Handy alias for rebuilding system based on new config
       rebuild = "nixos-rebuild boot --flake ~/nix-config#default --use-remote-sudo";
@@ -22,16 +22,6 @@
       # keybindings {
         # Accept autosuggestion on ctrl + F
 	bindkey -M viins '^F' autosuggest-accept
-
-	# Thin cursor when in insert mode
-	#function zle-keymap-select {
-	#  if [[ $KEYMAP == vicmd ]]; then
-	#    echo -ne \'\e[2 q\' # Fat block for NORMAL
-	#  elif [[ $KEYMAP == viins ]]; then
-	#    echo -ne \'\e[6 q\' # Thin bar for INSERT
-	#  fi
-	#  zle reset-prompt
-	#}
 
 	# Hook function
 	#zle -N zle-keymap-select
@@ -82,6 +72,10 @@
 	  # git plugin
 	  name = "plugins/git";
 	  tags = [ from:oh-my-zsh ];
+	}
+	{
+	  # zsh-vi-mode plugin
+	  name = "jeffreytse/zsh-vi-mode";
 	}
       ];
     };
