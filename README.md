@@ -107,7 +107,7 @@ now inside the vm follow the instructions in the [Usage](#usage) section to inst
 - add waybar and firefox to exec-once in hyprland config
 - add waybar config in nix
 - fix hyprlock not working
-- replace p10k with oh-my-posh
+- configure oh-my-posh to look like oh-my-zsh
 - look at ly (login manager)
 - look at n3 (file explorer)
 - look at zvm plugin for zsh (better vi mode)
