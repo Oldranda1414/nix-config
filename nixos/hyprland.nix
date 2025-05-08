@@ -1,9 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   home.packages = with pkgs; [
-    # modern terminal
-    kitty
     # application launcher for wayland
     wofi
     # navbar for wayland
@@ -19,6 +17,18 @@
     # lock screen
     hyprlock
   ];
+
+  programs = {
+    # modern terminal
+    kitty = {
+      enable = true;
+      settings = {
+        # override stylix theme opacity config
+        background_opacity = lib.mkDefault 0.8;
+        enable_blur = true;
+      };
+    };
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
