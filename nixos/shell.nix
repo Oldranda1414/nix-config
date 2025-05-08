@@ -6,7 +6,6 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    # defaultKeymap = "viins";
     shellAliases = {
       # Handy alias for rebuilding system based on new config
       rebuild = "nixos-rebuild switch --flake ~/nix-config#default --use-remote-sudo";
@@ -63,11 +62,11 @@
     zplug = { # For the list of options, please refer to Zplug README.
       enable = true;
       plugins = [
-        {
-	  # theming and stuff
-          name = "romkatv/powerlevel10k";
-          tags = [ as:theme depth:1 ]; 
-        }
+    #     {
+	  # # theming and stuff
+    #       name = "romkatv/powerlevel10k";
+    #       tags = [ as:theme depth:1 ]; 
+    #     }
 	{
 	  # git plugin
 	  name = "plugins/git";
@@ -94,9 +93,15 @@
     eza
   ];
 
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
+  programs = {
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+    oh-my-posh = {
+      enable = true;
+      enableBashIntegration = true;
+    };
   };
 
   # add p10k configuration
