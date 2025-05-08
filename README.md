@@ -110,3 +110,4 @@ now inside the vm follow the instructions in the [Usage](#usage) section to inst
 - replace p10k with oh-my-posh
 - look at ly (login manager)
 - look at n3 (file explorer)
+- look at zvm plugin for zsh (better vi mode)
