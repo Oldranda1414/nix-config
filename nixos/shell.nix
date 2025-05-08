@@ -100,7 +100,7 @@
     };
     oh-my-posh = {
       enable = true;
-      useTheme = "catppuccin-mocha";
+      useTheme = "catppuccin_mocha";
       enableBashIntegration = true;
     };
   };
