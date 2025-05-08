@@ -111,3 +111,4 @@ now inside the vm follow the instructions in the [Usage](#usage) section to inst
 - look at ly (login manager)
 - look at n3 (file explorer)
 - look at zvm plugin for zsh (better vi mode)
+- fix kitty transperency not working
