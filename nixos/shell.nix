@@ -33,7 +33,7 @@
 	--multi"
 
   # Setting fzf to use bat as default previewer
-  export FZF_DEFAULT_OPTS="--preview='bat --style=numbers --color=always {}'"
+  export FZF_DEFAULT_OPTS="--preview='bat --color=always {}'"
       # }
 
       # bat { 
