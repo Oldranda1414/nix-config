@@ -104,11 +104,8 @@ now inside the vm follow the instructions in the [Usage](#usage) section to inst
 ## TODO
 
 - restructure the repo to have a better layout
-- add waybar and firefox to exec-once in hyprland config
 - add waybar config in nix
 - fix hyprlock not working
-- configure oh-my-posh to look like oh-my-zsh
-- look at ly (login manager)
+- configure oh-my-posh to look like oh-my-zsh (kinda done?)
 - look at n3 (file explorer)
-- look at zvm plugin for zsh (better vi mode)
 - fix kitty transperency not working
