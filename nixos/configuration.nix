@@ -154,6 +154,7 @@
   services.openssh.enable = true;
 
   services.displayManager.ly.enable = true;
+  # services.displayManager.ly.settings is broken for now;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
