@@ -110,3 +110,4 @@ now inside the vm follow the instructions in the [Usage](#usage) section to inst
 - look at n3 (file explorer)
 - fix kitty transperency not working
 - checkout https://github.com/RoastBeefer00/nix-home/tree/main/nix_modules for inspiration
+- remove stylix from boot [ OK ] stuff
