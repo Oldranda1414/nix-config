@@ -153,12 +153,7 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  services.displayManager.ly = {
-    enable = true;
-    settings = {
-      asterisk = "\#";
-    };
-  };
+  services.displayManager.ly.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
