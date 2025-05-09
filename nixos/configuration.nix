@@ -156,8 +156,7 @@
   services.displayManager.ly = {
     enable = true;
     settings = {
-      vi_mode = true;
-      vi_default_mode = "insert";
+      animation = "colormix"
     };
   };
 
