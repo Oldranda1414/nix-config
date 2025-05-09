@@ -21,9 +21,6 @@
       # keybindings {
         # Accept autosuggestion on ctrl + F
 	bindkey -M viins '^F' autosuggest-accept
-
-	# Hook function
-	#zle -N zle-keymap-select
       # }
 
       # powerlevel10k {
@@ -31,10 +28,6 @@
       # }
     
       # fzf {
-        # Enable fxf keybindings and completion
-	# TODO THIS DOES NOT WORK
-        # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
         # Setting fzf theme to catpuccin-mocha (https://github.com/catppuccin/fzf)
 	export FZF_DEFAULT_OPTS=" \
 	--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
@@ -62,11 +55,6 @@
     zplug = { # For the list of options, please refer to Zplug README.
       enable = true;
       plugins = [
-    #     {
-	  # # theming and stuff
-    #       name = "romkatv/powerlevel10k";
-    #       tags = [ as:theme depth:1 ]; 
-    #     }
 	{
 	  # git plugin
 	  name = "plugins/git";
@@ -100,11 +88,9 @@
     };
     oh-my-posh = {
       enable = true;
-      useTheme = "catppuccin_mocha";
       enableBashIntegration = true;
+      # useTheme = "catppuccin_mocha";
+      settings = builtins.fromJSON (builtins.readFile ./oh-my-posh.json);
     };
   };
-
-  # add p10k configuration
-  home.file.".p10k.zsh".text = builtins.readFile ./p10k.zsh;
 }
