@@ -153,7 +153,13 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  services.displayManager.ly.enable = true;
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+      vi_mode = true;
+      vi_default_mode = "insert";
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
