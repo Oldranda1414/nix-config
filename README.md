@@ -109,3 +109,4 @@ now inside the vm follow the instructions in the [Usage](#usage) section to inst
 - configure oh-my-posh to look like oh-my-zsh (kinda done?)
 - look at n3 (file explorer)
 - fix kitty transperency not working
+- add catpuccin mocha style to ly
