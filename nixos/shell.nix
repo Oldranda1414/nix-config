@@ -22,10 +22,6 @@
         # Accept autosuggestion on ctrl + F
 	bindkey -M viins '^F' autosuggest-accept
       # }
-
-      # powerlevel10k {
-        source ~/.p10k.zsh
-      # }
     
       # fzf {
         # Setting fzf theme to catpuccin-mocha (https://github.com/catppuccin/fzf)
