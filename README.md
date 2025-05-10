@@ -107,7 +107,7 @@ now inside the vm follow the instructions in the [Usage](#usage) section to inst
 - add waybar config in nix (checkout https://github.com/RoastBeefer00/nix-home/tree/main/nix_modules for inspiration)
 - fix hyprlock not working
 - configure oh-my-posh to look like oh-my-zsh (kinda done?)
-- look at n3 (file explorer)
+- look at n3 or yazi (file explorer)
 - fix kitty transperency not working
 - checkout https://github.com/RoastBeefer00/nix-home/tree/main/nix_modules for inspiration
 - remove stylix from boot [ OK ] stuff
