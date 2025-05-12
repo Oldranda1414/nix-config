@@ -104,10 +104,10 @@ now inside the vm follow the instructions in the [Usage](#usage) section to inst
 ## TODO
 
 - restructure the repo to have a better layout
-- add waybar config in nix (checkout https://github.com/RoastBeefer00/nix-home/tree/main/nix_modules for inspiration)
-- fix hyprlock not working
+- add waybar config in nix (https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads)
+- fix hyprlock not working (https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads)
 - configure oh-my-posh to look like oh-my-zsh (kinda done?)
 - look at n3 or yazi (file explorer)
 - fix kitty transperency not working
-- checkout https://github.com/RoastBeefer00/nix-home/tree/main/nix_modules for inspiration
+-checkout https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads for inspiration
 - remove stylix from boot [ OK ] stuff
