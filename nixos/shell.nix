@@ -18,6 +18,9 @@
     };
     initContent = ''
 
+      # set neovim as manpager
+      export MANPAGER='nvim +Man!'
+
       # keybindings {
         # Accept autosuggestion on ctrl + F
 	bindkey -M viins '^F' autosuggest-accept
