@@ -59,7 +59,7 @@ nixos-generate-config --root /mnt --dir /mnt
 
 # Copy hardware configuration from temporary location
 echo "Setting up hardware configuration..."
-mv /mnt/hardware-configuration.nix /mnt/etc/nixos/nix-config/nixos/hardware-configuration.nix
+mv /mnt/hardware-configuration.nix /mnt/etc/nixos/nixos/hardware-configuration.nix
 
 # Build the system
 echo "Building system configuration (this may take a while)..."
