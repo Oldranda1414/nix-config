@@ -104,9 +104,9 @@ now inside the vm follow the instructions in the [Usage](#usage) section to inst
 ## TODO
 
 - restructure the repo to have a better layout
-- add waybar config in nix (https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads)
-- fix hyprlock not working (https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads)
+- add script to automate installation
+- add waybar config in nix (<https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads>)
+- fix hyprlock not working (<https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads>)
 - configure oh-my-posh to look like oh-my-zsh (kinda done?)
 - fix kitty transperency not working
--checkout https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads for inspiration
-- remove stylix from boot [ OK ] stuff
+- checkout <https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads> for inspiration
