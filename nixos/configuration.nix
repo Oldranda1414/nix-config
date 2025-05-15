@@ -140,7 +140,8 @@
     image = ./wallpaper.png;
     targets = {
       # Disable theme for the following targets
-      grub.enable = false;
+      console.enable = false;
+      plymouth.enable = false;
     };
   };
 
