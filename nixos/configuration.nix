@@ -142,6 +142,7 @@
       # Disable theme for the following targets
       console.enable = false;
       plymouth.enable = false;
+      grub.enable = false;
     };
   };
 
