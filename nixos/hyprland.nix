@@ -7,7 +7,7 @@
     # navbar for wayland
     waybar
     # file explorer
-    kdePackages.dolphin
+    yazi
     # notification deamon
     mako
     # notification deamon dependency
@@ -42,7 +42,7 @@
 
       # Set programs that you use
       "$terminal" = "kitty";
-      "$fileManager" = "dolphin";
+      "$fileManager" = "yazi";
       "$menu" = "wofi --show drun";
       "$lock" = "hyrlock";
 
