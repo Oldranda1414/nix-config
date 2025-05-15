@@ -244,7 +244,7 @@
         "$mainMod, RETURN, exec, $terminal"
         "$mainMod, C, killactive,"
         "$mainMod, M, exit,"
-        "$mainMod, E, exec, $fileManager"
+        "$mainMod, E, exec, $terminal $fileManager"
         "$mainMod, V, togglefloating,"
         "$mainMod, R, exec, $menu"
         "$mainMod, L, exec, $lock"
