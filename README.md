@@ -107,7 +107,6 @@ now inside the vm follow the instructions in the [Usage](#usage) section to inst
 - add waybar config in nix (https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads)
 - fix hyprlock not working (https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads)
 - configure oh-my-posh to look like oh-my-zsh (kinda done?)
-- look at n3 or yazi (file explorer)
 - fix kitty transperency not working
 -checkout https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads for inspiration
 - remove stylix from boot [ OK ] stuff

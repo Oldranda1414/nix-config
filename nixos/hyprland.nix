@@ -240,6 +240,7 @@
 
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
       bind = [
+        "$modifier,K,exec,list-keybinds"
         "$mainMod, RETURN, exec, $terminal"
         "$mainMod, C, killactive,"
         "$mainMod, M, exit,"
