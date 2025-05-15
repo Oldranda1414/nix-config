@@ -20,12 +20,12 @@ umount -R /mnt 2>/dev/null || true
 echo "Partitioning disk $DISK..."
 parted "$DISK" -- mklabel gpt
 
-# Create a 3GB EFI partition from 1MiB to 3073MiB (1MiB + 3072MiB = 3GB)
-parted "$DISK" -- mkpart ESP fat32 1MiB 3073MiB
-parted "$DISK" -- set 1 esp on  # Set ESP flag on partition 1
-
 # Create the main partition starting right after the EFI partition
 parted "$DISK" -- mkpart primary 2049MiB 100%
+
+# Create a 2GB EFI partition from 1MiB to 2049MiB (1MiB + 2048MiB = 2GB)
+parted "$DISK" -- mkpart ESP fat32 1MiB 2049MiB
+parted "$DISK" -- set 1 esp on  # Set ESP flag on partition 1
 
 # Create filesystems
 echo "Creating filesystems..."
