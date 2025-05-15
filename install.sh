@@ -55,11 +55,15 @@ git clone https://github.com/Oldranda1414/nix-config /mnt/etc/nixos
 
 # Generate hardware configuration
 echo "Generating hardware configuration..."
-nixos-generate-config --root /mnt
+nixos-generate-config --root /mnt --dir /tmp/nixos-config
+
+# Copy hardware configuration from temporary location
+echo "Setting up hardware configuration..."
+mv /tmp/nixos-config/hardware-configuration.nix /mnt/nix-config/nixos/hardware-configuration.nix
 
 # Build the system
 echo "Building system configuration (this may take a while)..."
-nixos-install --flake /mnt/etc/nixos#default --no-root-passwd
+sudo nixos-rebuild boot --flake /mnt/nix-config#default
 
 # Reboot the system
 echo "Installation complete! Rebooting the system..."
