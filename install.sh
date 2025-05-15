@@ -63,7 +63,7 @@ mv /mnt/hardware-configuration.nix /mnt/etc/nixos/nixos/hardware-configuration.n
 
 # Build the system
 echo "Building system configuration (this may take a while)..."
-sudo nixos-rebuild boot --flake /mnt/nix-config#default
+sudo nixos-rebuild boot --flake /mnt/etc/nixos#default
 
 # Reboot the system
 echo "Installation complete! Rebooting the system..."
