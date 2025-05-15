@@ -2,6 +2,12 @@
 
 set -euo pipefail
 
+# Check if running as root
+if [[ $EUID -ne 0 ]]; then
+    echo "This script must be run as root. Use 'sudo' or log in as root." >&2
+    exit 1
+fi
+
 echo "Starting NixOS full installation..."
 
 ## Disk Partitioning Section ##
