@@ -20,17 +20,17 @@ umount -R /mnt 2>/dev/null || true
 echo "Partitioning disk $DISK..."
 parted "$DISK" -- mklabel gpt
 
-# Create the main partition starting right after the EFI partition
-parted "$DISK" -- mkpart primary 2049MiB 100%
-
-# Create a 2GB EFI partition from 1MiB to 2049MiB (1MiB + 2048MiB = 2GB)
+# Create a 2GB EFI partition first (recommended for alignment)
 parted "$DISK" -- mkpart ESP fat32 1MiB 2049MiB
 parted "$DISK" -- set 1 esp on  # Set ESP flag on partition 1
 
+# Create the main partition using remaining space
+parted "$DISK" -- mkpart primary 2049MiB 100%
+
 # Create filesystems
 echo "Creating filesystems..."
-mkfs.ext4 -L nixos "${DISK}1"
-mkfs.fat -F 32 -n boot "${DISK}2"
+mkfs.fat -F 32 -n boot "${DISK}1"  # First partition is ESP
+mkfs.ext4 -L nixos "${DISK}2"      # Second partition is root
 
 # Mount filesystems
 echo "Mounting filesystems..."
@@ -58,15 +58,15 @@ git clone https://github.com/Oldranda1414/nix-config /mnt/etc/nixos
 
 # Generate hardware configuration
 echo "Generating hardware configuration..."
-nixos-generate-config --root /mnt --dir /mnt
+nixos-generate-config --root /mnt
 
 # Copy hardware configuration from temporary location
 echo "Setting up hardware configuration..."
-mv /mnt/hardware-configuration.nix /mnt/etc/nixos/nixos/hardware-configuration.nix
+mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/nixos/hardware-configuration.nix
 
 # Build the system
 echo "Building system configuration (this may take a while)..."
-sudo nixos-rebuild boot --flake /mnt/etc/nixos#default
+nixos-rebuild boot --flake /mnt/etc/nixos#default
 
 # Reboot the system
 echo "Installation complete! Rebooting the system..."
