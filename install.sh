@@ -17,12 +17,12 @@ DISK="/dev/sda"  # Using standard SATA disk
 echo "Unmounting any existing partitions..."
 umount -R /mnt 2>/dev/null || true
 
-# Partition the disk
-echo "Partitioning disk $DISK..."
-parted "$DISK" -- mklabel gpt
-parted "$DISK" -- mkpart primary 512MiB 100%  # Main partition
-parted "$DISK" -- mkpart ESP fat32 1MiB 512MiB  # EFI partition
-parted "$DISK" -- set 2 esp on  # Enable ESP flag on second partition
+# Create a 2GB EFI partition from 1MiB to 2049MiB (1MiB + 2048MiB = 2GB)
+parted "$DISK" -- mkpart ESP fat32 1MiB 2049MiB
+parted "$DISK" -- set 1 esp on  # Set ESP flag on partition 1
+
+# Create the main partition starting right after the EFI partition
+parted "$DISK" -- mkpart primary 2049MiB 100%
 
 # Create filesystems
 echo "Creating filesystems..."
