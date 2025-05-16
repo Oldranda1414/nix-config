@@ -113,4 +113,4 @@ now inside the vm follow the instructions in the [Usage](#usage) section to inst
 - test installtion script with curl -L `https://raw.githubusercontent.com/Oldranda1414/nix-config/main/install.sh`
 - astronvim for easy plugin management or nixvim even better
 - nvim 'jj' for escaping insert mode
-- remap capslock to esc and home row mods with kanata
+- remap capslock to esc and home row mods with kanata (https://github.com/dreamsofcode-io/home-row-mods/tree/main)
