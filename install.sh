@@ -43,7 +43,7 @@ mount /dev/disk/by-label/boot /mnt/boot
 # Temporary install git if not available
 if ! command -v git &> /dev/null; then
     echo "Git not found, temporarily installing via nix-shell..."
-    nix-shell -p git --run "echo 'Git is now temporarily available'"
+    nix-shell -p git --command "echo 'Git is now available'"
 fi
 
 # Remove existing config directory if present
@@ -65,9 +65,14 @@ echo "Setting up hardware configuration..."
 mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/nixos/hardware-configuration.nix
 
 # Build the system
-echo "Building system configuration (this may take a while)..."
-nixos-install --flake /mnt/etc/nixos#default
+if ! nixos-install --flake /mnt/etc/nixos#default; then
+  echo "Installation failed. Check logs above for errors." >&2
+  exit 1
+fi
 
 # Reboot the system
-echo "Installation complete! Rebooting the system..."
-reboot
+read -p "Installation complete! Reboot now? (y/n) " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  reboot
+fi
