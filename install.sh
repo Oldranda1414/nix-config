@@ -34,13 +34,13 @@ mkfs.ext4 -L nixos "${DISK}2"      # Second partition is root
 
 # Mount filesystems
 echo "Mounting filesystems..."
-mount /dev/disk/by-label/nixos /mnt
+mount "${DISK}2" /mnt
 mkdir -p /mnt/boot
-mount /dev/disk/by-label/boot /mnt/boot
+mount "${DISK}1" /mnt/boot
 
 ## NixOS Configuration Section ##
 
-# Temporary install git if not available
+# Install git if not available
 if ! command -v git &> /dev/null; then
     echo "Git not found, temporarily installing via nix-shell..."
     nix-shell -p git --command "echo 'Git is now available'"
