@@ -20,23 +20,27 @@ umount -R /mnt 2>/dev/null || true
 echo "Partitioning disk $DISK..."
 parted "$DISK" -- mklabel gpt
 
-# Create a 2GB EFI partition first (recommended for alignment)
-parted "$DISK" -- mkpart ESP fat32 1MiB 2049MiB
-parted "$DISK" -- set 1 esp on  # Set ESP flag on partition 1
+# Small BIOS boot partition
+parted "$DISK" -- mkpart primary 1MiB 3MiB
+parted "$DISK" -- set 1 bios_grub on
+
+# EFI partition (second partition)
+parted "$DISK" -- mkpart ESP fat32 3MiB 2051MiB
+parted "$DISK" -- set 2 esp on
 
 # Create the main partition using remaining space
-parted "$DISK" -- mkpart primary 2049MiB 100%
+parted "$DISK" -- mkpart primary 2051MiB 100%
 
 # Create filesystems
 echo "Creating filesystems..."
-mkfs.fat -F 32 -n boot "${DISK}1"  # First partition is ESP
-mkfs.ext4 -L nixos "${DISK}2"      # Second partition is root
+mkfs.fat -F 32 -n boot "${DISK}2"
+mkfs.ext4 -L nixos "${DISK}3"
 
 # Mount filesystems
 echo "Mounting filesystems..."
-mount "${DISK}2" /mnt
+mount "${DISK}3" /mnt
 mkdir -p /mnt/boot
-mount "${DISK}1" /mnt/boot
+mount "${DISK}2" /mnt/boot
 
 ## NixOS Configuration Section ##
 
