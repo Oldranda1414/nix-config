@@ -110,7 +110,7 @@ now inside the vm follow the instructions in the [Usage](#usage) section to inst
 - configure oh-my-posh to look like oh-my-zsh (kinda done?)
 - fix kitty transperency not working
 - checkout <https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads> for inspiration
-- test installtion script with curl -L `https://raw.githubusercontent.com/Oldranda1414/nix-config/main/install.sh`
+- test installtion script with `curl -L https://raw.githubusercontent.com/Oldranda1414/nix-config/main/install.sh | sudo bash`
 - astronvim for easy plugin management or nixvim even better
 - nvim 'jj' for escaping insert mode
-- remap capslock to esc and home row mods with kanata (https://github.com/dreamsofcode-io/home-row-mods/tree/main)
+- remap capslock to esc and home row mods with kanata (<https://github.com/dreamsofcode-io/home-row-mods/tree/main>)
