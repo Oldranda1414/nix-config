@@ -18,23 +18,23 @@ None for now :)
 
 If you want to checkout my system just try it out in vm!
 
-I recommend using qemu, a terminal based vm manager
+The following guide will use `nix-shell` to have you use the dependencies in a temporary nix-shell.
+
+Nix must be installed to use the `nix-shell` command.
+
+cd into the vm directory
+
+`cd vm`
 
 Download the latest NixOS iso from the official site [click me to start the download](https://channels.nixos.org/nixos-24.11/latest-nixos-gnome-x86_64-linux.iso)
 
-Place the image in the root directory of this repo.
+Enter the temporary shell
 
-`mv ~/Downloads/<name of your iso> .`
+`nix-shell`
 
-Install qemu and ovmf with your favourite package manager
+Run the `run-vm.sh` script with root priviliges providing the path to the nixos-minimal iso
 
-Using apt:
-
-`sudo apt install qemu ovmf`
-
-Run the `run-vm.sh` script with root priviliges
-
-`sudo run-vm.sh`
+`sudo run-vm.sh /path/to/iso/nixos-minimal*.iso`
 
 Follow [Usage guide](#Usage)
 
