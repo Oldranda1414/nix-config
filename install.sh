@@ -74,9 +74,4 @@ if ! nixos-install --flake /mnt/etc/nixos#default; then
   exit 1
 fi
 
-# Reboot the system
-read -p "Installation complete! Reboot now? (y/n) " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-  reboot
-fi
+echo -p "Installation complete! Reboot to load the new configuration."
