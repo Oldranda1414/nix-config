@@ -10,9 +10,9 @@ To setup my configuration on a new NixOS installation:
 
 `curl -L raw.githubusercontent.com/Oldranda1414/nix-config/main/install.sh | sudo bash`
 
-### Common Problems
+On reboot you will be greeted with my configuration.
 
-None for now :)
+The user `randa` will be created with the password `12345` and description `Leonardo Randacio`.
 
 ### Check it out in vm
 
@@ -20,7 +20,7 @@ If you want to checkout my system just try it out in vm!
 
 The following guide will use `nix-shell` to have you use the dependencies in a temporary nix-shell.
 
-Nix must be installed to use the `nix-shell` command.
+Nix must be installed to use the `nix-shell` command [download](https://nixos.org/download/).
 
 cd into the vm directory
 
@@ -36,9 +36,11 @@ Run the `run-vm.sh` script with root priviliges providing the path to the nixos-
 
 `sudo run-vm.sh /path/to/iso/nixos-minimal*.iso`
 
-Follow [Usage guide](#Usage)
+Install my configuration
 
-After installing shutdown the run-vm
+`curl -L raw.githubusercontent.com/Oldranda1414/nix-config/main/install.sh | sudo bash`
+
+After installing shutdown the vm
 
 `poweroff`
 
@@ -47,6 +49,14 @@ Run the script again
 `sudo run-vm.sh`
 
 Now the vm should boot up to my configuration!
+
+To start the vm subsequent times rerun the script (no need to provide the iso path again)
+
+#### Cleanup
+
+To remove all dependencies temporarily installed in the nix-shell session
+
+`nix-store --gc`
 
 ## TODO
 

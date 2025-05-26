@@ -6,6 +6,7 @@ pkgs.mkShell {
   buildInputs = [
     pkgs.qemu
     pkgs.OVMF
+    pkgs.bashInteractive
   ];
 
   shellHook = ''

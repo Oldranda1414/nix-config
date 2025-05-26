@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 IMG_FILE="./nixos.img"
 
@@ -17,17 +17,25 @@ else
   OVMF_CODE="/usr/share/OVMF/OVMF_CODE.fd"
   OVMF_VARS="/usr/share/OVMF/OVMF_VARS.fd"
 
+  if [ "$(id -u)" -ne 0 ]; then
+    echo "❌ No nixos.img file found. To create it this script must be run as root." >&2
+    echo "This script requires root privileges to access the OVMF firmware files on first boot of vm."
+    echo "Usage: sudo $0 /path/to/nixos.iso"
+    exit 1
+  fi
+
   # Check if OVMF files exist
   if [ ! -f "$OVMF_CODE" ] || [ ! -f "$OVMF_VARS" ]; then
     echo "❌ OVMF firmware files not found."
-    echo "Please run the `nix-shell` command"
+    echo "Please run the `nix-shell` command while in the vm directory to install the required packages."
     exit 1
   fi
 
   # Check for ISO path argument
   if [ -z "$ISO_PATH" ]; then
     echo "❌ Please provide the path to the NixOS ISO."
-    echo "Usage: $0 /path/to/nixos.iso"
+    echo "This script requires the path to the NixOS ISO file as an argument on first boot of vm."
+    echo "Usage: sudo $0 /path/to/nixos.iso"
     exit 1
   fi
 
