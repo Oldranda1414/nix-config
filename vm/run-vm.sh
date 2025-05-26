@@ -42,6 +42,9 @@ else
   # Create new VM image and boot from ISO with UEFI
   qemu-img create -f qcow2 $IMG_FILE 20G
 
+  # Change ownership of the image file to the user running the script
+  chown "$SUDO_USER":"$SUDO_USER" "$IMG_FILE"
+
   qemu-system-x86_64 \
     -enable-kvm \
     -m 8192 \
@@ -53,4 +56,3 @@ else
     -drive file=$IMG_FILE,format=qcow2 \
     -cdrom $ISO_PATH
 fi
-
