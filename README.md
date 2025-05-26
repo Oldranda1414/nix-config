@@ -34,7 +34,7 @@ Enter the temporary shell
 
 Run the `run-vm.sh` script with root priviliges providing the path to the nixos-minimal iso
 
-`sudo run-vm.sh /path/to/iso/nixos-minimal*.iso`
+`./run-vm.sh /path/to/iso/nixos-minimal*.iso`
 
 Install my configuration
 
@@ -46,7 +46,7 @@ After installing shutdown the vm
 
 Run the script again
 
-`sudo run-vm.sh`
+`./run-vm.sh`
 
 Now the vm should boot up to my configuration!
 

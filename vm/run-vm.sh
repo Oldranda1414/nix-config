@@ -14,20 +14,24 @@ if [ -f "$IMG_FILE" ]; then
 else
 
   ISO_PATH="$1"
-  OVMF_CODE="/usr/share/OVMF/OVMF_CODE.fd"
-  OVMF_VARS="/usr/share/OVMF/OVMF_VARS.fd"
 
-  if [ "$(id -u)" -ne 0 ]; then
-    echo "❌ No nixos.img file found. To create it this script must be run as root." >&2
-    echo "This script requires root privileges to access the OVMF firmware files on first boot of vm."
-    echo "Usage: sudo $0 /path/to/nixos.iso"
+  # Preemptively ask for sudo (only once)
+  if ! sudo -v; then
+    echo "❌ Error: sudo is required to run the VM."
+    exit 1
+  fi
+
+  # Ensure required environment variables are set
+  if [ -z "$OVMF_CODE" ] || [ -z "$OVMF_VARS" ]; then
+    echo "❌ OVMF_CODE and/or OVMF_VARS are not set."
+    echo "Make sure you're running this script from inside 'nix-shell'."
     exit 1
   fi
 
   # Check if OVMF files exist
   if [ ! -f "$OVMF_CODE" ] || [ ! -f "$OVMF_VARS" ]; then
     echo "❌ OVMF firmware files not found."
-    echo "Please run the `nix-shell` command while in the vm directory to install the required packages."
+    echo "Make sure you're running this script from inside 'nix-shell'."
     exit 1
   fi
 
@@ -35,17 +39,14 @@ else
   if [ -z "$ISO_PATH" ]; then
     echo "❌ Please provide the path to the NixOS ISO."
     echo "This script requires the path to the NixOS ISO file as an argument on first boot of vm."
-    echo "Usage: sudo $0 /path/to/nixos.iso"
+    echo "Usage: $0 /path/to/nixos.iso"
     exit 1
   fi
 
   # Create new VM image and boot from ISO with UEFI
-  qemu-img create -f qcow2 $IMG_FILE 20G
+  qemu-img create -f qcow2 $IMG_FILE 20G >/dev/null 2>&1
 
-  # Change ownership of the image file to the user running the script
-  chown "$SUDO_USER":"$SUDO_USER" "$IMG_FILE"
-
-  qemu-system-x86_64 \
+  sudo qemu-system-x86_64 \
     -enable-kvm \
     -m 8192 \
     -cpu host \

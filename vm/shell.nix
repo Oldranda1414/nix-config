@@ -1,5 +1,8 @@
 { pkgs ? import <nixpkgs> {} }:
 
+let
+  ovmfPath = pkgs.OVMF.fd + "/FV";
+in
 pkgs.mkShell {
   name = "nixos-vm-env";
 
@@ -10,7 +13,11 @@ pkgs.mkShell {
   ];
 
   shellHook = ''
+    export OVMF_CODE="${ovmfPath}/OVMF_CODE.fd"
+    export OVMF_VARS="${ovmfPath}/OVMF_VARS.fd"
+
     echo "✔️ VM environment ready."
-    echo "Run 'sudo ./run-vm.sh /path/to/iso/nixos-minimal*.iso' to start the VM."
+    echo
+    echo "Run './run-vm.sh /path/to/iso/nixos-minimal*.iso' to start the VM."
   '';
 }
