@@ -12,7 +12,7 @@ To setup my configuration on a new NixOS installation:
 
 On reboot you will be greeted with my configuration.
 
-The user `randa` will be created with the password `12345` and description `Leonardo Randacio`.
+The user `randa` will be created with the password `12345`.
 
 ### Check it out in vm
 
