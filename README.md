@@ -68,3 +68,4 @@ To remove all dependencies temporarily installed in the nix-shell session
 - astronvim for easy plugin management or nixvim even better
 - nvim 'jj' for escaping insert mode
 - remap capslock to esc and home row mods with kanata (<https://github.com/dreamsofcode-io/home-row-mods/tree/main>)
+- checkout qutebrowser and qtwebengine
