@@ -6,7 +6,7 @@ This repo contains my nix configuration files
 
 KEEP IN MIND THAT RUNNING THIS CONFIGURATION AS IS WILL SETUP YOUR SYSTEM TO MY CONFIGURATION, INCLUDING ALL MY USERS AND ACCOUNTS
 
-To setup my configuration on a new NixOS installation:
+To setup my configuration on a NEW NixOS installation:
 
 `curl -L raw.githubusercontent.com/Oldranda1414/nix-config/main/install.sh | sudo bash`
 
