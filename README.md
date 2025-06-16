@@ -65,9 +65,8 @@ To remove all dependencies temporarily installed in the nix-shell session
 - fix hyprlock not working (<https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads>)
 - configure oh-my-posh to look like oh-my-zsh (kinda done?)
 - checkout <https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads> for inspiration
-- astronvim for easy plugin management or nixvim even better
-- nvim 'jj' for escaping insert mode
-- remap capslock to esc and home row mods with kanata (<https://github.com/dreamsofcode-io/home-row-mods/tree/main>)
-- checkout qutebrowser and qtwebengine
+- add nixvim for nvim
+- checkout qutebrowser and qtwebengine (keep chrome for now, qutebrowser gave me some problems on some websites, maybe because of add blocker)
 - checkout lutris for gaming
 - fix stylix taking up so much space by disabeling auto enable and enabeling only for pkgs used
+- find a better way to run the vm (should be doable from nix directly, no sh and qemu stuff directly)
