@@ -70,3 +70,4 @@ To remove all dependencies temporarily installed in the nix-shell session
 - remap capslock to esc and home row mods with kanata (<https://github.com/dreamsofcode-io/home-row-mods/tree/main>)
 - checkout qutebrowser and qtwebengine
 - checkout lutris for gaming
+- fix stylix taking up so much space by disabeling auto enable and enabeling only for pkgs used
