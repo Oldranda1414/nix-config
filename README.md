@@ -70,3 +70,5 @@ To remove all dependencies temporarily installed in the nix-shell session
 - checkout lutris for gaming
 - fix stylix taking up so much space by disabeling auto enable and enabeling only for pkgs used
 - find a better way to run the vm (should be doable from nix directly, no sh and qemu stuff directly)
+- change host name
+- test capability of having 2 users with different window managers
