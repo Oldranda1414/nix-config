@@ -73,3 +73,4 @@ To remove all dependencies temporarily installed in the nix-shell session
 - change host name
 - test capability of having 2 users with different window managers
 - add tmux
+- disable nvidia dgpu (https://nixos.wiki/wiki/Nvidia)
