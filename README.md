@@ -58,6 +58,10 @@ To remove all dependencies temporarily installed in the nix-shell session
 
 `nix-store --gc`
 
+## Architecture
+
+This config's architecture is heavily inspired by [Anatomy of a NixOS Configuration](http://unmovedcentre.com/posts/anatomy-of-a-nixos-config/).
+
 ## TODO
 
 - restructure the repo to have a better layout

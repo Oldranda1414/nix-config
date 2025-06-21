@@ -26,16 +26,21 @@
   in
   {
 
-  nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-    modules = [
-      ./nixos/configuration.nix
-
-      stylix.nixosModules.stylix
-
-      inputs.home-manager.nixosModules.default
-    ];
-    specialArgs = { inherit inputs; };
-  };
-
+    # Generate NixOS configurations for each host in the `hosts` directory.
+    nixosConfigurations = builtins.listToAttrs (
+        map (host: {
+          name = host;
+          value = nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              inherit inputs;
+            };
+            modules = [ 
+              ./hosts/${host}
+              stylix.nixosModules.stylix
+              home-manager.nixosModules.default
+            ];
+          };
+        }) (builtins.attrNames (builtins.readDir ./hosts))
+      );
   };
 }
