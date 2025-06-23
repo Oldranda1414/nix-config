@@ -69,7 +69,7 @@ echo "Setting up hardware configuration..."
 mv /mnt/etc/nixos/hardware-configuration.nix /mnt/etc/nixos/nixos/hardware-configuration.nix
 
 # Build the system
-if ! nixos-install --flake /mnt/etc/nixos#default; then
+if ! nixos-install --flake /mnt/etc/nixos#vm; then
   echo "Installation failed. Check logs above for errors." >&2
   exit 1
 fi
