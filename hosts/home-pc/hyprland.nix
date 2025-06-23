@@ -45,6 +45,7 @@
       "$fileManager" = "yazi";
       "$menu" = "wofi --show drun";
       "$lock" = "hyrlock";
+      "$browser" = "firefox";
 
       "$mainMod" = "SUPER";
 
@@ -248,6 +249,7 @@
         "$mainMod, V, togglefloating,"
         "$mainMod, R, exec, $menu"
         "$mainMod, L, exec, $lock"
+        "$mainMod, B, exec, $browser"
 
         "$mainMod, P, pseudo," # dwindle
         "$mainMod, S, togglesplit," # dwindle
