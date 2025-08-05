@@ -7,7 +7,7 @@ let
     key = "Return";
   };
   menu = {
-    run = "rofi --show drun";
+    run = "rofi -show drun";
     key = "d";
   };
   browser = {
@@ -20,6 +20,7 @@ let
     up = "k";
     right = "l";
   };
+  kill = "q";
   barPosition = "top";
   workspaces = [
     { name = "1"; key = "1";}
@@ -53,9 +54,53 @@ in {
     enable = true;
     package = pkgs.i3-gaps;
     config = {
+      defaultWorkspace = "1";
+      bars = [
+        {
+          mode = "dock";
+          hiddenState = "hide";
+          position = barPosition;
+          workspaceButtons = true;
+          workspaceNumbers = true;
+          statusCommand = "${pkgs.i3status}/bin/i3status";
+          fonts = {
+            names = [ "monospace" ];
+            size = 8.0;
+          };
+          trayOutput = "primary";
+          colors = {
+            background = "#000000";
+            statusline = "#ffffff";
+            separator = "#666666";
+            focusedWorkspace = {
+              border = "#4c7899";
+              background = "#285577";
+              text = "#ffffff";
+            };
+            activeWorkspace = {
+              border = "#333333";
+              background = "#5f676a";
+              text = "#ffffff";
+            };
+            inactiveWorkspace = {
+              border = "#333333";
+              background = "#222222";
+              text = "#888888";
+            };
+            urgentWorkspace = {
+              border = "#2f343a";
+              background = "#900000";
+              text = "#ffffff";
+            };
+            bindingMode = {
+              border = "#2f343a";
+              background = "#900000";
+              text = "#ffffff";
+            };
+          };
+        }
+      ];
       gaps = {
-        # inner = 10;
-        # outer = 5;
 	vertical = 15;
 	horizontal = 15;
 	smartBorders = "on";
@@ -77,6 +122,9 @@ in {
         "${mod}+Shift+${movement.down}" = "move down";
         "${mod}+Shift+${movement.up}" = "move up";
         "${mod}+Shift+${movement.right}" = "move right";
+
+        # misc
+        "${mod}+${kill}" = "kill";
       }
       //
       builtins.listToAttrs (

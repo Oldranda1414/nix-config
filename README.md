@@ -74,5 +74,6 @@ This config's architecture is heavily inspired by [Anatomy of a NixOS Configurat
 - find a better way to run the vm (should be doable from nix directly, no sh and qemu stuff directly)
 - test capability of having 2 users with different window managers
 - add tmux
-- disable nvidia dgpu (https://nixos.wiki/wiki/Nvidia) on laptop
+- disable nvidia dgpu (https://nixos.wiki/wiki/Nvidia) on laptop.
 - checkout if the option `xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];` was the reason for hyprland not working properly. Try setting it to `pkgs.xdg-desktop-portal-wlr`
+- set global dark theme, probably with gtk.
