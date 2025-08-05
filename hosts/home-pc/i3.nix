@@ -53,11 +53,30 @@ in {
     enable = true;
     package = pkgs.i3-gaps;
     config = {
+      gaps = {
+        # inner = 10;
+        # outer = 5;
+	vertical = 15;
+	horizontal = 15;
+	smartBorders = "on";
+	smartGaps = true;
+      };
       modifier = mod;
       keybindings = {
+        # applications
         "${mod}+${term.key}" = "exec ${term.run}";
         "${mod}+${menu.key}" = "exec ${menu.run}";
         "${mod}+${browser.key}" = "exec ${browser.run}";
+
+	# movement
+        "${mod}+${movement.left}" = "focus left";
+        "${mod}+${movement.down}" = "focus down";
+        "${mod}+${movement.up}" = "focus up";
+        "${mod}+${movement.right}" = "focus right";
+        "${mod}+Shift+${movement.left}" = "move left";
+        "${mod}+Shift+${movement.down}" = "move down";
+        "${mod}+Shift+${movement.up}" = "move up";
+        "${mod}+Shift+${movement.right}" = "move right";
       }
       //
       builtins.listToAttrs (
@@ -74,10 +93,6 @@ in {
 	  ]
 	) workspaces)
       );
-      gaps = {
-        inner = 10;
-        outer = 5;
-      };
     };
   };
 }
