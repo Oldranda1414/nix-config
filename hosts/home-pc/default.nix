@@ -58,6 +58,9 @@
   # nvidia stuff
   # nvidia drivers
   services.xserver.videoDrivers = [ "nvidia" ];
+  environment.sessionVariables = {
+    WLR_DRM_NO_MODIFIERS = "1";
+  };
 
   hardware = {
     graphics.enable = true;
@@ -73,8 +76,22 @@
     };
   };
 
-  # Set system to use wayland
-  services.xserver.enable = true;
+  # Set system to use i3
+  services.xserver = {
+    enable = true;
+    desktopManager.xterm.enable = false;
+    windowManager.i3 = {
+      enable = true;
+    };
+  };
+  programs.i3lock.enable = true;
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      python3
+    ];
+  };
 
   # Configure console keymap
   console.keyMap = "it2";
@@ -117,13 +134,13 @@
   programs.firefox.enable = true;
 
   # Install hyprland window manager
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-    #withUWSM = true;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  #   xwayland.enable = true;
+  #   #withUWSM = true;
+  # };
 
-  security.pam.services.hyprlock = {};
+  # security.pam.services.hyprlock = {};
 
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
@@ -146,10 +163,14 @@
     neovim
     # browser
     firefox-wayland
+    google-chrome
+    # env loader
+    direnv
   ];
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.config.common.default = "*";
   
   # Enable stylix for theme management
   stylix = {

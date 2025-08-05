@@ -64,9 +64,7 @@ This config's architecture is heavily inspired by [Anatomy of a NixOS Configurat
 
 ## TODO
 
-- restructure the repo to have a better layout
-- add waybar config in nix (<https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads>)
-- fix hyprlock not working (<https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads>)
+- restructure the repo to have a better layout and use modules
 - configure oh-my-posh to look like oh-my-zsh (kinda done?)
 - checkout <https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads> for inspiration
 - add nixvim for nvim
@@ -74,7 +72,7 @@ This config's architecture is heavily inspired by [Anatomy of a NixOS Configurat
 - add steam for gaming
 - fix stylix taking up so much space by disabeling auto enable and enabeling only for pkgs used
 - find a better way to run the vm (should be doable from nix directly, no sh and qemu stuff directly)
-- change host name
 - test capability of having 2 users with different window managers
 - add tmux
-- disable nvidia dgpu (https://nixos.wiki/wiki/Nvidia)
+- disable nvidia dgpu (https://nixos.wiki/wiki/Nvidia) on laptop
+- checkout if the option `xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];` was the reason for hyprland not working properly. Try setting it to `pkgs.xdg-desktop-portal-wlr`

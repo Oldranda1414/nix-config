@@ -4,7 +4,8 @@
   imports = [
     ./git.nix
     ./shell.nix
-    ./hyprland.nix
+    # ./hyprland.nix
+    ./i3.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
