@@ -159,8 +159,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-    # text editor
-    neovim
     # browser
     firefox-wayland
     google-chrome

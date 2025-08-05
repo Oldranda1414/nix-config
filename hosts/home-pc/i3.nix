@@ -54,7 +54,7 @@ in {
     enable = true;
     package = pkgs.i3-gaps;
     config = {
-      defaultWorkspace = "1";
+      defaultWorkspace = "workspace 1";
       bars = [
         {
           mode = "dock";

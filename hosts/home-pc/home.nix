@@ -6,7 +6,8 @@
     ./shell.nix
     # ./hyprland.nix
     ./i3.nix
-  ];
+    ./vim.nix 
+];
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -16,6 +17,8 @@
   home.packages = with pkgs; [
     # Install fonts
     nerd-fonts.jetbrains-mono
+    # clipboard provider
+    xclip
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
