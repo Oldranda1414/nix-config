@@ -87,7 +87,8 @@ This config's architecture is heavily inspired by [Anatomy of a NixOS Configurat
     - set vi and vim alias to nvim
     - set telescope to be top down instead of bottom up
     - set border distance to 2 so no sudden shift happens when git info is showed
-- add this for laptop battery consumption (This improved my battery life significantly.
+- add this for laptop battery consumption:
+```
   # Disable if devices take long to unsuspend (keyboard, mouse, etc)
   powerManagement.powertop.enable = true;
   services = {
@@ -103,4 +104,4 @@ This config's architecture is heavily inspired by [Anatomy of a NixOS Configurat
       };
     };
   };
-)
+```
