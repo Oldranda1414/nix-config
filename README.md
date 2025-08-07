@@ -105,3 +105,4 @@ This config's architecture is heavily inspired by [Anatomy of a NixOS Configurat
     };
   };
 ```
+- take a look at this for laptop: https://wiki.nixos.org/wiki/Laptop
