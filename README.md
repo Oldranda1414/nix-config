@@ -2,7 +2,7 @@
 
 This repo contains my nix configuration files
 
-## Usage
+<!-- ## Usage
 
 KEEP IN MIND THAT RUNNING THIS CONFIGURATION AS IS WILL SETUP YOUR SYSTEM TO MY CONFIGURATION, INCLUDING ALL MY USERS AND ACCOUNTS
 
@@ -58,9 +58,15 @@ To remove all dependencies temporarily installed in the nix-shell session
 
 `nix-store --gc`
 
+-->
+
+<!--
+
 ## Architecture
 
 This config's architecture is heavily inspired by [Anatomy of a NixOS Configuration](http://unmovedcentre.com/posts/anatomy-of-a-nixos-config/).
+
+-->
 
 ## TODO
 
