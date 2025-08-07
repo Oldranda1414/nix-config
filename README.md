@@ -77,3 +77,7 @@ This config's architecture is heavily inspired by [Anatomy of a NixOS Configurat
 - checkout if the option `xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];` was the reason for hyprland not working properly. Try setting it to `pkgs.xdg-desktop-portal-wlr`
 - set global dark theme, probably with gtk.
 - customize status line, probably checkout some i3 rice and copy it.
+- nixvim:
+    - set vi and vim alias to nvim
+    - set telescope to be top down instead of bottom up
+    - set border distance to 2 so no sudden shift happens when git info is showed

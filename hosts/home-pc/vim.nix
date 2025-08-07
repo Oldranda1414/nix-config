@@ -98,4 +98,10 @@
       }
     ];
   };
+
+  home.packages = with pkgs; [
+    # necessary for live_grep (Telescope plugin)
+    ripgrep
+  ];
+
 }
