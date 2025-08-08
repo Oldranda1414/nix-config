@@ -31,7 +31,13 @@
       # nix developer plugin
       nix.enable = true;
       # fuzzy find stuff
-      telescope.enable = true;
+      telescope = {
+        enable = true;
+        settings.defaults = {
+          layout_config.prompt_position = "top";
+          sorting_strategy = "ascending";
+        };
+      };
       # code completion
       blink-cmp.enable = true;
       # keymapping hints
