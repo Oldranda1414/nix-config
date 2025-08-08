@@ -19,7 +19,12 @@
       register = "unnamedplus";
     };
 
-    opts.signcolumn = "yes";
+    opts = {
+      number = true;
+      relativenumber = true;
+      # remove awkward shift when git info appears
+      signcolumn = "yes";
+    };
 
     plugins = {
       # status line
