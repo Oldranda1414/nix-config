@@ -71,6 +71,7 @@ This config's architecture is heavily inspired by [Anatomy of a NixOS Configurat
 ## TODO
 
 - restructure the repo to have a better layout and use modules
+- fix audio not working, gdamnit
 - configure oh-my-posh to look like oh-my-zsh (kinda done?)
 - checkout <https://gitlab.com/Zaney/zaneyos/-/tree/main?ref_type=heads> for inspiration
 - checkout qutebrowser and qtwebengine (keep chrome for now, qutebrowser gave me some problems on some websites, maybe because of add blocker)
@@ -83,10 +84,6 @@ This config's architecture is heavily inspired by [Anatomy of a NixOS Configurat
 - checkout if the option `xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];` was the reason for hyprland not working properly. Try setting it to `pkgs.xdg-desktop-portal-wlr`
 - set global dark theme, probably with gtk.
 - customize status line, probably checkout some i3 rice and copy it.
-- nixvim:
-    - set vi and vim alias to nvim
-    - set telescope to be top down instead of bottom up
-    - set border distance to 2 so no sudden shift happens when git info is showed
 - add this for laptop battery consumption:
 ```
   # Disable if devices take long to unsuspend (keyboard, mouse, etc)

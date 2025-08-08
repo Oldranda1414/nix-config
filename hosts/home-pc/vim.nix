@@ -7,6 +7,7 @@
 
   programs.nixvim = {
     enable = true;
+    vimAlias = true;
 
     colorschemes.catppuccin = {
       enable = true;
@@ -17,6 +18,8 @@
       providers.xclip.enable = true;
       register = "unnamedplus";
     };
+
+    opts.signcolumn = "yes";
 
     plugins = {
       # status line
@@ -33,9 +36,11 @@
       # fuzzy find stuff
       telescope = {
         enable = true;
-        settings.defaults = {
-          layout_config.prompt_position = "top";
-          sorting_strategy = "ascending";
+        settings = {
+          defaults = {
+            layout_config.prompt_position = "top";
+            sorting_strategy = "ascending";
+          };
         };
       };
       # code completion
@@ -58,9 +63,37 @@
       maplocalleader = " ";
     };
     keymaps = [
+      {
+        action = ":quitall<CR>";
+        key = "<leader>q";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Quit nvim";
+        };
+      }
+      # Easy window navigation
+      {
+        action = "<C-w>h";
+        key = "<C-h>";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Focus left window";
+        };
+      }
+      {
+        action = "<C-w>l";
+        key = "<C-l>";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Focus right window";
+        };
+      }
       # Nvim-Tree open file explorer
       {
-        action = ":NvimTreeOpen<CR>";
+        action = ":NvimTreeToggle<CR>";
         key = "<leader>e";
         options = {
           silent = true;

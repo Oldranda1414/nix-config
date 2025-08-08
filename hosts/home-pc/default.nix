@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgsStable, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -160,8 +160,8 @@
   environment.systemPackages = with pkgs; [
     wget
     # browser
-    firefox-wayland
-    pkgsStable.google-chrome
+    firefox
+    google-chrome
     # env loader
     direnv
   ];

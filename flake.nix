@@ -3,8 +3,8 @@
 
   inputs = {
     # nixpkgs version
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    # nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     # user config management
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -23,19 +23,11 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, stylix, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, ... } @ inputs:
   let
     system = "x86_64-linux";
 
     pkgs = import nixpkgs {
-      inherit system;
-
-      config = {
-      	allowUnfree = true;
-      };
-    };
-
-    pkgsStable = import nixpkgs-stable {
       inherit system;
 
       config = {
@@ -52,7 +44,7 @@
           name = host;
           value = nixpkgs.lib.nixosSystem {
             specialArgs = {
-              inherit inputs pkgsStable;
+              inherit inputs;
             };
             modules = [ 
               ./hosts/${host}
