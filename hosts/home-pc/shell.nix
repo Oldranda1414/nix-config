@@ -23,7 +23,7 @@
 
       # keybindings {
         # Accept autosuggestion on ctrl + F
-	bindkey -M viins '^F' autosuggest-accept
+        bindkey -M viins '^F' autosuggest-accept
       # }
     
       # fzf {
@@ -35,8 +35,8 @@
 	--color=selected-bg:#45475a \
 	--multi"
 
-  # Setting fzf to use bat as default previewer
-  export FZF_DEFAULT_OPTS="--preview='bat --color=always {}'"
+        # Setting fzf to use bat as default previewer
+        export FZF_DEFAULT_OPTS="--preview='bat --color=always {}'"
       # }
 
       # bat { 
@@ -54,7 +54,7 @@
 	eval "$(direnv hook zsh)"
       # }
     '';
-    zplug = { # For the list of options, please refer to Zplug README.
+    zplug = { # For the list of options, refer to Zplug README.
       enable = true;
       plugins = [
 	{

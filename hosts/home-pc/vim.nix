@@ -24,6 +24,8 @@
       relativenumber = true;
       # remove awkward shift when git info appears
       signcolumn = "yes";
+      # have status line appear on every pane
+      laststatus = 3;
     };
 
     plugins = {
@@ -60,6 +62,8 @@
       nvim-autopairs.enable = true;
       # auto save
       auto-save.enable = true;
+      # integration with treesitter
+      treesitter.enable = true;
     };
 
     # keymaps
@@ -69,18 +73,18 @@
     };
     keymaps = [
       {
-        action = ":quitall<CR>";
         key = "<leader>q";
+        action = ":quitall<CR>";
         options = {
           silent = true;
           noremap = true;
           desc = "Quit nvim";
         };
       }
-      # Easy window navigation
+      # Window navigation
       {
-        action = "<C-w>h";
         key = "<C-h>";
+        action = "<C-w>h";
         options = {
           silent = true;
           noremap = true;
@@ -88,42 +92,100 @@
         };
       }
       {
-        action = "<C-w>l";
         key = "<C-l>";
+        action = "<C-w>l";
         options = {
           silent = true;
           noremap = true;
           desc = "Focus right window";
         };
       }
-      # Nvim-Tree open file explorer
       {
-        action = ":NvimTreeToggle<CR>";
-        key = "<leader>e";
+        key = "<C-j>";
+        action = "<C-w>j";
         options = {
           silent = true;
           noremap = true;
-          desc = "Open explorer";
+          desc = "Focus down window";
         };
       }
-      # Telescope search files
       {
-        action = ":Telescope find_files<CR>";
+        key = "<C-k>";
+        action = "<C-w>k";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Focus up window";
+        };
+      }
+      {
+        mode = "n";
+        key = "<Tab>";
+        action = "<C-w>p";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Focus previous window";
+        };
+      }
+      # Nvim-Tree
+      {
+        key = "<leader>e";
+        action = ":NvimTreeToggle<CR>";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Toggle file explorer";
+        };
+      }
+      # Telescope
+      {
         key = "<leader>ff";
+        action = ":Telescope find_files<CR>";
         options = {
           silent = true;
           noremap = true;
           desc = "Search files";
         };
       }
-      # Telescope search (live grep)
       {
-        action = ":Telescope live_grep<CR>";
         key = "<leader>fw";
+        action = ":Telescope live_grep<CR>";
         options = {
           silent = true;
           noremap = true;
           desc = "Search grep";
+        };
+      }
+      # Terminal buffer
+      {
+        key = "<leader>t";
+        action = ":botright split | resize 15 | terminal<CR>";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Open terminal";
+        };
+      }
+      {
+        mode = "t";
+        key = "<esc><esc>";
+        action = "<C-\\><C-n>";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Exit terminal mode";
+        };
+      }
+      # Unset search
+      {
+        mode = "n";
+        key = "<esc>";
+        action = ":nohlsearch<CR>";
+        options = {
+          silent = true;
+          noremap = true;
+          desc = "Remove search highlight";
         };
       }
     ];
@@ -144,8 +206,9 @@
   };
 
   home.packages = with pkgs; [
-    # necessary for live_grep (Telescope plugin)
+    # necessary for telescope
     ripgrep
+    fd
   ];
 
 }
