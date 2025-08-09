@@ -90,8 +90,7 @@
     };
     oh-my-posh = {
       enable = true;
-      enableBashIntegration = true;
-      # useTheme = "catppuccin_mocha";
+      enableZshIntegration = true;
       settings = builtins.fromJSON (builtins.readFile ./oh-my-posh.json);
     };
   };
