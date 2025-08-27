@@ -13,8 +13,8 @@
       # Handy alias for backtracking
       ".." = "cd ..";
 
-      # ls into exa (modern ls)
-      ls = "eza --color=always --icons";
+      # Handy alias to exit
+      e = "exit";
     };
     initContent = ''
 
@@ -24,34 +24,6 @@
       # keybindings {
         # Accept autosuggestion on ctrl + F
         bindkey -M viins '^F' autosuggest-accept
-      # }
-    
-      # fzf {
-        # Setting fzf theme to catpuccin-mocha (https://github.com/catppuccin/fzf)
-	export FZF_DEFAULT_OPTS=" \
-	--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-	--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-	--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
-	--color=selected-bg:#45475a \
-	--multi"
-
-        # Setting fzf to use bat as default previewer
-        export FZF_DEFAULT_OPTS="--preview='bat --color=always {}'"
-      # }
-
-      # bat { 
-        # Setting bat theme
-	export BAT_THEME=Nord
-      # }
-
-      # zoxide {
-        # enable zoxide
-        eval "$(zoxide init --cmd cd zsh)"
-      # }
-
-      # direnv {
-        # direnv setup hook
-	eval "$(direnv hook zsh)"
       # }
     '';
     zplug = { # For the list of options, refer to Zplug README.
@@ -70,28 +42,36 @@
     };
   };
 
-  home.packages = with pkgs; [
-    # fuzzy finder
-    fzf
-    # modern cd
-    zoxide
-    # new and improved cat
-    bat
-    # shell extension environment
-    direnv
-    # modern ls
-    eza
-  ];
-
   programs = {
     fzf = {
       enable = true;
       enableZshIntegration = true;
+      defaultOptions = [ "--preview='bat" "--color=always {}'"];
     };
     oh-my-posh = {
       enable = true;
       enableZshIntegration = true;
       settings = builtins.fromJSON (builtins.readFile ./oh-my-posh.json);
+    };
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+      options = [ "--cmd cd" ];
+    };
+    eza = {
+      enable = true;
+      enableZshIntegration = true;
+      colors = "always";
+      icons = "always";
+      git = true;
+    };
+    bat = {
+      enable = true;
+    };
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      silent = true;
     };
   };
 }
