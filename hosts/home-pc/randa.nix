@@ -11,7 +11,7 @@
       isNormalUser = true;
       initialPassword = "12345";
       description = "Leonardo Randacio";
-      extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
+      extraGroups = [ "networkmanager" "wheel" "video" "audio" "docker" ];
       shell = pkgs.zsh;
       packages = with pkgs; [
       ];
