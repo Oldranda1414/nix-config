@@ -3,7 +3,7 @@
 
   inputs = {
     # nixpkgs version
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     # nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     # user config management
     home-manager = {
@@ -14,7 +14,6 @@
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
     };
     # text editor
     nixvim = {

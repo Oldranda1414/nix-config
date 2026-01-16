@@ -11,8 +11,6 @@
 
       ./randa.nix
       ./maintenance.nix
-
-      inputs.home-manager.nixosModules.default
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -182,6 +180,10 @@
       console.enable = false;
       plymouth.enable = false;
       grub.enable = false;
+      # trying to compile, TODO check if these are really needed
+      gnome.enable = false;
+      gtk.enable = false;
+      qt.enable = false;
     };
   };
 

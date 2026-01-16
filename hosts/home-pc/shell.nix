@@ -8,7 +8,7 @@
     syntaxHighlighting.enable = true;
     shellAliases = {
       # Handy alias for rebuilding system based on new config
-      rebuild = "nixos-rebuild switch --flake ~/nix-config --use-remote-sudo";
+      rebuild = "nixos-rebuild switch --flake ~/nix-config --sudo";
 
       # Handy alias for backtracking
       ".." = "cd ..";

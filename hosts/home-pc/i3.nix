@@ -52,7 +52,7 @@ in {
 
   xsession.windowManager.i3 = {
     enable = true;
-    package = pkgs.i3-gaps;
+    package = pkgs.i3;
     config = {
       defaultWorkspace = "workspace 1";
       bars = [
