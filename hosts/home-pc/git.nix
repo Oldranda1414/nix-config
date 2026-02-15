@@ -3,10 +3,11 @@
 {
   programs.git = {
     enable = true;
-    userName = "Oldranda1414";
-    userEmail = "leonardorandacio@gmail.com";
-
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Oldranda1414";
+        email = "leonardorandacio@gmail.com";
+      };
       alias = {
         st = "status -sb"; # Shows concise status
         last = "log -1 HEAD --stat"; # Shows last commit with file changes

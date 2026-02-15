@@ -34,7 +34,7 @@
       # file explorer
       nvim-tree = {
         enable = true;
-        disableNetrw = true;
+        settings.disable_netrw = true;
       };
       # icons for nvim-tree
       web-devicons.enable = true;

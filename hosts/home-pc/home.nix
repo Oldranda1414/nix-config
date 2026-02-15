@@ -19,6 +19,8 @@
     nerd-fonts.jetbrains-mono
     # clipboard provider
     xclip
+    # onion browser
+    tor-browser
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
